@@ -1,5 +1,6 @@
 package castle.comp3021.assignment;
 
+import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.player.ConsolePlayer;
 import castle.comp3021.assignment.player.RandomPlayer;
@@ -28,17 +29,27 @@ public class Main {
      */
     public static Game createGame(int size, int numMovesProtection) {
         // TODO student implementation
-        // The following lines are example of constructing a game object, you may modify them as you wish.
         var userPlayer = new ConsolePlayer("UserPlayer");
         var computerPlayer = new RandomPlayer("ComputerPlayer");
         // we give
         Configuration configuration = new Configuration(size, new Player[]{userPlayer, computerPlayer}, numMovesProtection);
         var knight1 = new Knight(userPlayer);
         var knight2 = new Knight(computerPlayer);
-        // put knight1 at place(0,0) on the gameboard
-        configuration.addInitialPiece(knight1, 0, 0);
-        // put knight2 at place(1,0) on the gameboard
-        configuration.addInitialPiece(knight2, 1, 0);
+        Archer archer1 = new Archer(userPlayer);
+        var archer2 = new Archer(computerPlayer);
+        for (int i = 0; i < size; i++) {  // (User) put knight1 and archer1 start from bottom row
+            if (i % 2 == 0)
+                configuration.addInitialPiece(knight1, i, 0);
+            else
+                configuration.addInitialPiece(archer1, i, 0);
+        }
+
+        for (int j = 0; j < size; j++) {  // (PC) put knight2 and archer2 start from the top row
+            if (j % 2 == 0)
+                configuration.addInitialPiece(knight2, j, size - 1);
+            else
+                configuration.addInitialPiece(archer2, j, size - 1);
+        }
         return new JesonMor(configuration);
     }
 

@@ -40,8 +40,39 @@ public class JesonMor extends Game {
         this.refreshOutput();
         while (true) {
             // TODO student implementation starts here
+            currentPlayer = getPlayers()[numMoves % 2];  // current player
+            Player lastPlayer = (numMoves % 2) == 0 ? getPlayers()[1] : getPlayers()[0];  // last player
 
+            Move[] availMoves = getAvailableMoves(currentPlayer);
+            if (availMoves.length == 0 && numMoves > this.getConfiguration().getNumMovesProtection()) {   // Tie Breaking Rule
+                winner = currentPlayer.getScore() <= lastPlayer.getScore() ? currentPlayer : lastPlayer;
+                System.out.println();
+                System.out.println("Congratulations! ");
+                System.out.printf("Winner: %s%s%s\n", winner.getColor(), winner.getName(), Color.DEFAULT);
+                return winner;
+            }
+
+            Move currentMove = currentPlayer.nextMove(this, availMoves);
+            Piece currentPiece = this.getPiece(currentMove.getDestination());
+
+            Move[] recordOfMoves = new Move[numMoves + 1];
+            recordOfMoves[numMoves] = currentMove;
+
+            Move lastMove = null;
+            Piece lastPiece = null;
+
+            if (numMoves != 0) {  // first round has no last player
+                lastMove = recordOfMoves[numMoves - 1];
+                lastPiece = this.getPiece(lastMove.getDestination());
+            }
+
+            this.movePiece(currentMove);
+            ++numMoves;
+            this.updateScore(currentPlayer, currentPiece, currentMove);
+            winner = this.getWinner(lastPlayer, lastPiece, lastMove);
+            this.refreshOutput();
             // student implementation ends here
+
             if (winner != null) {
                 System.out.println();
                 System.out.println("Congratulations! ");
@@ -50,6 +81,8 @@ public class JesonMor extends Game {
             }
         }
     }
+
+
 
     /**
      * Get the winner of the game. If there is no winner yet, return null;
@@ -60,13 +93,24 @@ public class JesonMor extends Game {
      * If this method returns null, next player will be asked to make a move.
      *
      * @param lastPlayer the last player who makes a move
-     * @param lastMove   the last move made by lastPlayer
      * @param lastPiece  the last piece that is moved by the player
+     * @param lastMove   the last move made by lastPlayer
      * @return the winner if it exists, otherwise return null
      */
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        if (lastPiece != null && lastMove != null) {
+            if (lastPiece.getLabel() == 'K') {
+                lastPiece.equals(this.getPiece(this.getCentralPlace()));
+                int centralX = this.getCentralPlace().x();
+                int centralY = this.getCentralPlace().y();
+
+
+                lastMove.getSource();
+                return lastPlayer;
+            }
+        }
         return null;
     }
 
@@ -89,6 +133,10 @@ public class JesonMor extends Game {
      */
     public void updateScore(Player player, Piece piece, Move move) {
         // TODO student implementation
+        int currentScore = player.getScore();
+        int distance = Math.abs(move.getDestination().x() - move.getSource().x())
+                + Math.abs(move.getDestination().y() - move.getSource().y());
+        player.setScore(currentScore + distance);
     }
 
 
@@ -124,6 +172,16 @@ public class JesonMor extends Game {
      */
     public @NotNull Move[] getAvailableMoves(Player player) {
         // TODO student implementation
-        return new Move[0];
+        for (int x = 0; x < this.getConfiguration().getSize(); x++) {
+            for (int y = 0; y < this.getConfiguration().getSize(); y++) {
+                Piece getAllPiece = this.getPiece(x, y);
+                if (getAllPiece != null && getAllPiece.getPlayer().equals(player)) {
+                    Move[] getAllMoves = new Move[0];
+                    getAllPiece.getAvailableMoves(this, );
+                }
+            }
+        }
+
+        return getAllMoves[0];
     }
 }
