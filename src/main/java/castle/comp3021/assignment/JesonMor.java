@@ -106,7 +106,6 @@ public class JesonMor extends Game {
                 int centralX = this.getCentralPlace().x();
                 int centralY = this.getCentralPlace().y();
 
-
                 lastMove.getSource();
                 return lastPlayer;
             }
@@ -157,6 +156,20 @@ public class JesonMor extends Game {
      */
     public void movePiece(@NotNull Move move) {
         // TODO student implementation
+        int sourceX = move.getSource().x();
+        int sourceY = move.getSource().y();
+        int destinationX = move.getDestination().x();
+        int destinationY = move.getDestination().y();
+        Piece pieceToMove = this.getPiece(sourceX, sourceY);
+        this.board[sourceX][sourceY] = null;
+        Piece pieceOnDestination = this.board[destinationX][destinationY];
+        if (pieceOnDestination != null) {  // capturing
+
+        }
+
+        this.board[destinationX][destinationY] = pieceToMove;
+
+
     }
 
     /**
@@ -172,16 +185,21 @@ public class JesonMor extends Game {
      */
     public @NotNull Move[] getAvailableMoves(Player player) {
         // TODO student implementation
+        Move[] originalMoves = new Move[0];
         for (int x = 0; x < this.getConfiguration().getSize(); x++) {
             for (int y = 0; y < this.getConfiguration().getSize(); y++) {
-                Piece getAllPiece = this.getPiece(x, y);
-                if (getAllPiece != null && getAllPiece.getPlayer().equals(player)) {
-                    Move[] getAllMoves = new Move[0];
-                    getAllPiece.getAvailableMoves(this, );
+                Piece getAPiece = this.getPiece(x, y);
+                if (getAPiece != null && getAPiece.getPlayer().equals(player)) {
+                    Move[] pieceOfMoves = getAPiece.getAvailableMoves(this, new Place(x, y));
+                    Move[] createNewMoves = new Move[originalMoves.length + pieceOfMoves.length];
+                    for (int i = 0; i < originalMoves.length; ++i)   // moving the old one
+                        createNewMoves[i] = originalMoves[i];
+                    for (int i = originalMoves.length; i < createNewMoves.length; ++i)   // moving the new one
+                        createNewMoves[i] = pieceOfMoves[i - originalMoves.length];
+                    originalMoves = createNewMoves;
                 }
             }
         }
-
-        return getAllMoves[0];
+        return originalMoves;
     }
 }
