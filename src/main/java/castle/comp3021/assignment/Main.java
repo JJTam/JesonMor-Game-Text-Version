@@ -35,7 +35,7 @@ public class Main {
         Configuration configuration = new Configuration(size, new Player[]{userPlayer, computerPlayer}, numMovesProtection);
         var knight1 = new Knight(userPlayer);
         var knight2 = new Knight(computerPlayer);
-        Archer archer1 = new Archer(userPlayer);
+        var archer1 = new Archer(userPlayer);
         var archer2 = new Archer(computerPlayer);
         for (int i = 0; i < size; i++) {  // (User) put knight1 and archer1 start from bottom row
             if (i % 2 == 0)

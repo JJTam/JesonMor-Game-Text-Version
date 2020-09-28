@@ -3,6 +3,8 @@ package castle.comp3021.assignment;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 /**
  * This class extends {@link Game}, implementing the game logic of JesonMor game.
  * Student needs to implement methods in this class to make the game work.
@@ -41,8 +43,7 @@ public class JesonMor extends Game {
         while (true) {
             // TODO student implementation starts here
             currentPlayer = getPlayers()[numMoves % 2];  // current player
-            Player lastPlayer = (numMoves % 2) == 0 ? getPlayers()[1] : getPlayers()[0];  // last player
-
+            Player lastPlayer = (numMoves % 2) == 0 ? this.getPlayers()[1] : this.getPlayers()[0];  // last player
             Move[] availMoves = getAvailableMoves(currentPlayer);
             if (availMoves.length == 0 && numMoves > this.getConfiguration().getNumMovesProtection()) {   // Tie Breaking Rule
                 winner = currentPlayer.getScore() <= lastPlayer.getScore() ? currentPlayer : lastPlayer;
@@ -53,24 +54,12 @@ public class JesonMor extends Game {
             }
 
             Move currentMove = currentPlayer.nextMove(this, availMoves);
-            Piece currentPiece = this.getPiece(currentMove.getDestination());
-
-            Move[] recordOfMoves = new Move[numMoves + 1];
-            recordOfMoves[numMoves] = currentMove;
-
-            Move lastMove = null;
-            Piece lastPiece = null;
-
-            if (numMoves != 0) {  // first round has no last player
-                lastMove = recordOfMoves[numMoves - 1];
-                lastPiece = this.getPiece(lastMove.getDestination());
-            }
-
-            this.movePiece(currentMove);
+            Piece currentPiece = this.getPiece(currentMove.getSource());
             ++numMoves;
+            this.movePiece(currentMove);
             this.updateScore(currentPlayer, currentPiece, currentMove);
-            winner = this.getWinner(lastPlayer, lastPiece, lastMove);
             this.refreshOutput();
+            winner = this.getWinner(currentPlayer, currentPiece, currentMove);
             // student implementation ends here
 
             if (winner != null) {
@@ -81,7 +70,6 @@ public class JesonMor extends Game {
             }
         }
     }
-
 
 
     /**
@@ -100,14 +88,35 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
-        if (lastPiece != null && lastMove != null) {
-            if (lastPiece.getLabel() == 'K') {
-                lastPiece.equals(this.getPiece(this.getCentralPlace()));
-                int centralX = this.getCentralPlace().x();
-                int centralY = this.getCentralPlace().y();
+        if (lastPlayer != null && lastPiece != null && lastMove != null) {
+            int sourceX = lastMove.getSource().x();
+            int sourceY = lastMove.getSource().y();
+            int centralX = this.getCentralPlace().x();
+            int centralY = this.getCentralPlace().y();
+            int gameSizeX = this.getConfiguration().getSize();
+            int gameSizeY = gameSizeX;
 
-                lastMove.getSource();
+            if (sourceX == centralX && sourceY == centralY && lastPiece.getLabel() == 'K'
+                    && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) {  // Winning Condition 1
                 return lastPlayer;
+            }
+
+            else {
+                for (int i = 0; i < gameSizeX; i++) {
+                    for (int j = 0; j < gameSizeY; j++) {
+                        Piece getAPiece = this.getPiece(i, j);
+                        if (getAPiece != null) {
+                            if (!getAPiece.getPlayer().equals(lastPlayer)) {
+                                return null;
+                            }
+                            else if (i == gameSizeX - 1 && j == gameSizeY - 1
+                                    && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) { // Winning Condition 2
+                                return lastPlayer;
+                            }
+
+                        }
+                    }
+                }
             }
         }
         return null;
@@ -162,14 +171,7 @@ public class JesonMor extends Game {
         int destinationY = move.getDestination().y();
         Piece pieceToMove = this.getPiece(sourceX, sourceY);
         this.board[sourceX][sourceY] = null;
-        Piece pieceOnDestination = this.board[destinationX][destinationY];
-        if (pieceOnDestination != null) {  // capturing
-
-        }
-
         this.board[destinationX][destinationY] = pieceToMove;
-
-
     }
 
     /**
@@ -192,10 +194,13 @@ public class JesonMor extends Game {
                 if (getAPiece != null && getAPiece.getPlayer().equals(player)) {
                     Move[] pieceOfMoves = getAPiece.getAvailableMoves(this, new Place(x, y));
                     Move[] createNewMoves = new Move[originalMoves.length + pieceOfMoves.length];
-                    for (int i = 0; i < originalMoves.length; ++i)   // moving the old one
+
+                    for (int i = 0; i < originalMoves.length; i++) {   // copying the old one
                         createNewMoves[i] = originalMoves[i];
-                    for (int i = originalMoves.length; i < createNewMoves.length; ++i)   // moving the new one
+                    }
+                    for (int i = originalMoves.length; i < createNewMoves.length; i++) {   // copying the new one
                         createNewMoves[i] = pieceOfMoves[i - originalMoves.length];
+                    }
                     originalMoves = createNewMoves;
                 }
             }
