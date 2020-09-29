@@ -1,9 +1,8 @@
 package castle.comp3021.assignment;
 
+import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
 
 /**
  * This class extends {@link Game}, implementing the game logic of JesonMor game.
@@ -96,24 +95,20 @@ public class JesonMor extends Game {
             int gameSizeX = this.getConfiguration().getSize();
             int gameSizeY = gameSizeX;
 
-            if (sourceX == centralX && sourceY == centralY && lastPiece.getLabel() == 'K'
+            if (sourceX == centralX && sourceY == centralY && lastPiece instanceof Knight
                     && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) {  // Winning Condition 1
                 return lastPlayer;
-            }
-
-            else {
+            } else {
                 for (int i = 0; i < gameSizeX; i++) {
                     for (int j = 0; j < gameSizeY; j++) {
                         Piece getAPiece = this.getPiece(i, j);
                         if (getAPiece != null) {
                             if (!getAPiece.getPlayer().equals(lastPlayer)) {
                                 return null;
-                            }
-                            else if (i == gameSizeX - 1 && j == gameSizeY - 1
-                                    && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) { // Winning Condition 2
+                            } else if (i == gameSizeX - 1 && j == gameSizeY - 1
+                                    && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) {  // Winning Condition 2
                                 return lastPlayer;
                             }
-
                         }
                     }
                 }
