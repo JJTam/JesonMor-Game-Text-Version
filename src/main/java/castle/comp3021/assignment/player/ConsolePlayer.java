@@ -4,7 +4,7 @@ import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
 
 /**
  * The player that makes move according to user input from console.
@@ -44,18 +44,64 @@ public class ConsolePlayer extends Player {
     @Override
     public @NotNull Move nextMove(Game game, Move[] availableMoves) {
         // TODO student implementation
-        boolean inputValid = false;
-        while (!inputValid) {
-            System.out.print(game.getCurrentPlayer().getColor() + "["
-                    + game.getCurrentPlayer().getName() + "]" + "Make a Move: ");
+        while (true) {
+            System.out.printf("%s[%s] Make a Move: ", game.getCurrentPlayer().getColor(), game.getCurrentPlayer().getName());
             Scanner scanner = new Scanner(System.in);
-            String userInput = scanner.next();
+            String userInput = scanner.nextLine();
+            if (userInput.contains("->")) {
+                String[] inputArray = userInput.toLowerCase().split("->");
+                if (inputArray.length == 2) {
+                    String inputA = inputArray[0].strip();
+                    String inputB = inputArray[1].strip();
+                    if (!inputA.isBlank() && !inputB.isBlank()
+                            && !inputA.contains(" ") && !inputB.contains(" ") && inputA.length() >= 2 && inputB.length() >= 2) {
+                        char letterA = inputA.toCharArray()[0];
+                        char letterB = inputB.toCharArray()[0];
+                        String stringToDigitA = inputA.substring(1);
+                        String stringToDigitB = inputB.substring(1);
+                        if (Character.isLetter(letterA) && Character.isLetter(letterB)) {   // must start with letter
+                            int digitA = 0;
+                            int digitB = 0;
+                            for (int i = 0; i < stringToDigitA.length(); ++i) {
+                                if (!Character.isDigit(stringToDigitA.toCharArray()[i])) {
+                                    break;
+                                }
+                                if (i == stringToDigitA.length() - 1) {
+                                    digitA = Integer.parseInt(stringToDigitA);
+                                }
+                            }
 
+                            for (int i = 0; i < stringToDigitB.length(); ++i) {
+                                if (!Character.isDigit(stringToDigitB.toCharArray()[i])) {
+                                    break;
+                                }
+                                if (i == stringToDigitB.length() - 1) {
+                                    digitB = Integer.parseInt(stringToDigitB);
+                                }
+                            }
 
-
+                            if (digitA != 0 && digitB != 0) {
+                                int convertedLetterA = letterA - 97;
+                                int convertedLetterB = letterB - 97;
+                                int convertedDigitA = digitA - 1;
+                                int convertedDigitB = digitB - 1;
+                                for (var move : availableMoves) {
+                                    if (move.getSource().x() == convertedLetterA
+                                            && move.getSource().y() == convertedDigitA
+                                            && move.getDestination().x() == convertedLetterB
+                                            && move.getDestination().y() == convertedDigitB) {
+                                        System.out.printf("%s moved piece at s(%d, %d) to s(%d, %d)\n",
+                                                game.getCurrentPlayer().getName(),
+                                                convertedLetterA, convertedDigitA, convertedLetterB, convertedDigitB);
+                                        return move;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-            return availableMoves[0];
     }
 
 }

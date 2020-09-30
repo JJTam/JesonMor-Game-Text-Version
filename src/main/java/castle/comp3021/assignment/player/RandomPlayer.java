@@ -6,6 +6,8 @@ import castle.comp3021.assignment.protocol.Move;
 import castle.comp3021.assignment.protocol.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
+
 /**
  * A computer player that makes a move randomly.
  */
@@ -34,6 +36,11 @@ public class RandomPlayer extends Player {
     @Override
     public @NotNull Move nextMove(Game game, Move[] availableMoves) {
         // TODO student implementation
-        return availableMoves[0];
+        Move move = availableMoves[new Random().nextInt(availableMoves.length)];
+        System.out.printf("%s moved piece at s(%d, %d) to s(%d, %d)\n",
+                game.getCurrentPlayer().getName(),
+                move.getSource().x(), move.getSource().y(),
+                move.getDestination().x(), move.getDestination().y());
+        return move;
     }
 }
