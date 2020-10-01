@@ -45,7 +45,7 @@ public class ConsolePlayer extends Player {
     public @NotNull Move nextMove(Game game, Move[] availableMoves) {
         // TODO student implementation
         while (true) {
-            System.out.printf("%s[%s] Make a Move: ", game.getCurrentPlayer().getColor(), game.getCurrentPlayer().getName());
+            System.out.printf("[%s] Make a Move: ", game.getCurrentPlayer().getName());
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
             if (userInput.contains("->")) {
@@ -62,7 +62,7 @@ public class ConsolePlayer extends Player {
                         if (Character.isLetter(letterA) && Character.isLetter(letterB)) {   // must start with letter
                             int digitA = 0;
                             int digitB = 0;
-                            for (int i = 0; i < stringToDigitA.length(); ++i) {
+                            for (int i = 0; i < stringToDigitA.length(); i++) {
                                 if (!Character.isDigit(stringToDigitA.toCharArray()[i])) {
                                     break;
                                 }
@@ -71,7 +71,7 @@ public class ConsolePlayer extends Player {
                                 }
                             }
 
-                            for (int i = 0; i < stringToDigitB.length(); ++i) {
+                            for (int i = 0; i < stringToDigitB.length(); i++) {
                                 if (!Character.isDigit(stringToDigitB.toCharArray()[i])) {
                                     break;
                                 }
@@ -81,7 +81,7 @@ public class ConsolePlayer extends Player {
                             }
 
                             if (digitA != 0 && digitB != 0) {
-                                int convertedLetterA = letterA - 97;
+                                int convertedLetterA = letterA - 97;  // ascii code
                                 int convertedLetterB = letterB - 97;
                                 int convertedDigitA = digitA - 1;
                                 int convertedDigitB = digitB - 1;

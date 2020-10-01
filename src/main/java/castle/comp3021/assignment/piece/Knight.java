@@ -40,6 +40,50 @@ public class Knight extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
-        return new Move[0];
+        Move[] originalMoves = new Move[0];
+        for (int x = 0; x < game.getConfiguration().getSize(); x++) {
+            for (int y = 0; y < game.getConfiguration().getSize(); y++) {
+                Place destination = new Place(x, y);
+                int distance = Math.abs(source.x() - destination.x()) + Math.abs(source.y() - destination.y());
+                if (distance == 3) {   // Knight's rule and cannot be blocked
+                    int differX = source.x() - destination.x();
+                    int differY = source.y() - destination.y();
+                    int blockX = -1;
+                    int blockY = -1;
+
+                    if (differX == 1 || differX == -1) {
+                        blockX = source.x();
+                        if (differY > 0) {
+                            blockY = source.y() - 1;
+                        } else {
+                            blockY = source.y() + 1;
+                        }
+                    } else if (differY == 1 || differY == -1) {
+                        blockY = source.y();
+                        if (differX > 0) {
+                            blockX = source.x() - 1;
+                        } else {
+                            blockX = source.x() + 1;
+                        }
+                    }
+
+                    if (blockX != -1 && blockY != -1) {
+                        Piece getBlockedPiece = game.getPiece(blockX, blockY);
+                        Piece getDestinationPiece = game.getPiece(destination);
+                        if (getBlockedPiece == null) {
+                            if (getDestinationPiece == null
+                                    || (!getDestinationPiece.getPlayer().equals(game.getCurrentPlayer())
+                                    && game.getNumMoves() > game.getConfiguration().getNumMovesProtection())) { // protection
+                                Move[] createNewMoves = new Move[originalMoves.length + 1];
+                                System.arraycopy(originalMoves, 0, createNewMoves, 0, originalMoves.length);
+                                createNewMoves[originalMoves.length] = new Move(source, destination);
+                                originalMoves = createNewMoves;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return originalMoves;
     }
 }

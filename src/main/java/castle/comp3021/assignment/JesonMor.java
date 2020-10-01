@@ -41,10 +41,10 @@ public class JesonMor extends Game {
         this.refreshOutput();
         while (true) {
             // TODO student implementation starts here
-            currentPlayer = getPlayers()[numMoves % 2];  // current player
+            this.currentPlayer = getPlayers()[numMoves % 2];  // current player
             Player lastPlayer = (numMoves % 2) == 0 ? this.getPlayers()[1] : this.getPlayers()[0];  // last player
             Move[] availMoves = getAvailableMoves(currentPlayer);
-            if (availMoves.length == 0 && numMoves > this.getConfiguration().getNumMovesProtection()) {   // Tie Breaking Rule
+            if (availMoves.length == 0 && numMoves != 0) {   // Tie Breaking Rule
                 winner = currentPlayer.getScore() <= lastPlayer.getScore() ? currentPlayer : lastPlayer;
                 System.out.println();
                 System.out.println("Congratulations! ");
@@ -93,7 +93,7 @@ public class JesonMor extends Game {
             int centralX = this.getCentralPlace().x();
             int centralY = this.getCentralPlace().y();
             int gameSizeX = this.getConfiguration().getSize();
-            int gameSizeY = gameSizeX;
+            int gameSizeY = this.getConfiguration().getSize();
 
             if (sourceX == centralX && sourceY == centralY && lastPiece instanceof Knight
                     && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) {  // Winning Condition 1
@@ -189,10 +189,7 @@ public class JesonMor extends Game {
                 if (getAPiece != null && getAPiece.getPlayer().equals(player)) {
                     Move[] pieceOfMoves = getAPiece.getAvailableMoves(this, new Place(x, y));
                     Move[] createNewMoves = new Move[originalMoves.length + pieceOfMoves.length];
-
-                    for (int i = 0; i < originalMoves.length; i++) {   // copying the old one
-                        createNewMoves[i] = originalMoves[i];
-                    }
+                    System.arraycopy(originalMoves, 0, createNewMoves, 0, originalMoves.length); // copying the old one
                     for (int i = originalMoves.length; i < createNewMoves.length; i++) {   // copying the new one
                         createNewMoves[i] = pieceOfMoves[i - originalMoves.length];
                     }
