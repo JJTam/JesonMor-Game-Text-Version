@@ -160,13 +160,9 @@ public class JesonMor extends Game {
      */
     public void movePiece(@NotNull Move move) {
         // TODO student implementation
-        int sourceX = move.getSource().x();
-        int sourceY = move.getSource().y();
-        int destinationX = move.getDestination().x();
-        int destinationY = move.getDestination().y();
-        Piece pieceToMove = this.getPiece(sourceX, sourceY);
-        this.board[sourceX][sourceY] = null;
-        this.board[destinationX][destinationY] = pieceToMove;
+        Piece pieceToMove = this.getPiece(move.getSource().x(), move.getSource().y());
+        this.board[move.getSource().x()][move.getSource().y()] = null;
+        this.board[move.getDestination().x()][move.getDestination().y()] = pieceToMove;
     }
 
     /**

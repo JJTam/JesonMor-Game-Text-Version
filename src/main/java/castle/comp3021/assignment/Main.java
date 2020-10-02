@@ -38,17 +38,19 @@ public class Main {
         var archer1 = new Archer(userPlayer);
         var archer2 = new Archer(computerPlayer);
         for (int i = 0; i < size; i++) {  // (User) put knight1 and archer1 start from bottom row
-            if (i % 2 == 0)
+            if (i % 2 == 0) {
                 configuration.addInitialPiece(knight1, i, 0);
-            else
+            } else {
                 configuration.addInitialPiece(archer1, i, 0);
+            }
         }
 
         for (int j = 0; j < size; j++) {  // (PC) put knight2 and archer2 start from the top row
-            if (j % 2 == 0)
+            if (j % 2 == 0) {
                 configuration.addInitialPiece(knight2, j, size - 1);
-            else
+            } else {
                 configuration.addInitialPiece(archer2, j, size - 1);
+            }
         }
         return new JesonMor(configuration);
     }

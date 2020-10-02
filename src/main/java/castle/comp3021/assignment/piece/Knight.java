@@ -45,13 +45,12 @@ public class Knight extends Piece {
             for (int y = 0; y < game.getConfiguration().getSize(); y++) {
                 Place destination = new Place(x, y);
                 int distance = Math.abs(source.x() - destination.x()) + Math.abs(source.y() - destination.y());
-                if (distance == 3) {   // Knight's rule and cannot be blocked
+                if (distance == 3) {   // Knight's rule
                     int differX = source.x() - destination.x();
                     int differY = source.y() - destination.y();
                     int blockX = -1;
                     int blockY = -1;
-
-                    if (differX == 1 || differX == -1) {
+                    if (differX == 1 || differX == -1) {    // check whether Knight be blocked
                         blockX = source.x();
                         if (differY > 0) {
                             blockY = source.y() - 1;
