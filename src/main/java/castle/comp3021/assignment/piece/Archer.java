@@ -65,10 +65,10 @@ public class Archer extends Piece {
             placeOfUp[y - source.y()] = new Place(source.x(), y + 1);
         }
 
-        originalMoves = getJumpMoves(originalMoves, placeOfDown, game, source, false);
-        originalMoves = getJumpMoves(originalMoves, placeOfLeft, game, source, false);
-        originalMoves = getJumpMoves(originalMoves, placeOfRight, game, source, false);
-        originalMoves = getJumpMoves(originalMoves, placeOfUp, game, source, false);
+        originalMoves = this.getJumpMoves(originalMoves, placeOfDown, game, source, false);
+        originalMoves = this.getJumpMoves(originalMoves, placeOfLeft, game, source, false);
+        originalMoves = this.getJumpMoves(originalMoves, placeOfRight, game, source, false);
+        originalMoves = this.getJumpMoves(originalMoves, placeOfUp, game, source, false);
 
         return originalMoves;
     }

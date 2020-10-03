@@ -41,9 +41,9 @@ public class JesonMor extends Game {
         this.refreshOutput();
         while (true) {
             // TODO student implementation starts here
-            this.currentPlayer = getPlayers()[numMoves % 2];  // current player
+            this.currentPlayer = this.getPlayers()[numMoves % 2];  // current player
             Player lastPlayer = (numMoves % 2) == 0 ? this.getPlayers()[1] : this.getPlayers()[0];  // last player
-            Move[] availMoves = getAvailableMoves(currentPlayer);
+            Move[] availMoves = this.getAvailableMoves(currentPlayer);
             if (availMoves.length == 0 && numMoves != 0) {   // Tie Breaking Rule
                 winner = currentPlayer.getScore() <= lastPlayer.getScore() ? currentPlayer : lastPlayer;
                 System.out.println();
@@ -87,15 +87,10 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        int gameSizeX = this.getConfiguration().getSize();
+        int gameSizeY = this.getConfiguration().getSize();
         if (lastPlayer != null && lastPiece != null && lastMove != null) {
-            int sourceX = lastMove.getSource().x();
-            int sourceY = lastMove.getSource().y();
-            int centralX = this.getCentralPlace().x();
-            int centralY = this.getCentralPlace().y();
-            int gameSizeX = this.getConfiguration().getSize();
-            int gameSizeY = this.getConfiguration().getSize();
-
-            if (sourceX == centralX && sourceY == centralY && lastPiece instanceof Knight
+            if (lastMove.getSource().equals(this.getCentralPlace()) && lastPiece instanceof Knight
                     && this.getNumMoves() > this.getConfiguration().getNumMovesProtection()) {  // Winning Condition 1
                 return lastPlayer;
             } else {
