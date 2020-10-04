@@ -10,20 +10,17 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </expand>
-    <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:my_pa1" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </select>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="fix_type_in_grading_scheme" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +74,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -93,7 +90,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../COMP_3021_Lab04" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/artifacts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -101,24 +98,24 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/artifacts/img" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/artifacts" />
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/artifacts/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/artifacts/img" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.GameTieBreakerTests.testMoveAndDeadlock">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
@@ -129,6 +126,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTieBreakerTests.testMoveAndDeadlock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3021-2020Fall-PA1-Student-Version" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
+      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameTieBreakerTests" />
+      <option name="METHOD_NAME" value="testMoveAndDeadlock" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,18 +158,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Demo" type="JarApplication">
+    <configuration name="PA1_obfuscated.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/PA1_obfuscated.jar" />
-      <option name="PROGRAM_PARAMETERS" value="9 5" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Mr\IdeaProjects\COMP_3021_PA1" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PA1_obfuscated.jar" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/checkstyle-8.36-all.jar" />
+      <option name="PROGRAM_PARAMETERS" value="-c artifacts/style_checks.xml com.puppycrawl.tools.checkstyle.gui.Main src" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JAR Application.Demo" />
+      <item itemvalue="JAR Application.PA1_obfuscated.jar" />
       <item itemvalue="JUnit.Test" />
+      <item itemvalue="JUnit.GameTieBreakerTests.testMoveAndDeadlock" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameTieBreakerTests.testMoveAndDeadlock" />
+        <item itemvalue="JAR Application.PA1_obfuscated.jar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -198,6 +221,11 @@
       <workItem from="1601027582031" duration="1955000" />
       <workItem from="1601214043697" duration="141000" />
       <workItem from="1601214199442" duration="358000" />
+      <workItem from="1601216121511" duration="507000" />
+      <workItem from="1601296993801" duration="2195000" />
+      <workItem from="1601370143281" duration="638000" />
+      <workItem from="1601435707184" duration="1186000" />
+      <workItem from="1601448203223" duration="3909000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1599619789508</created>
@@ -325,35 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601027698741</updated>
     </task>
-    <task id="LOCAL-00019" summary="Work on ConsolePlayer">
-      <created>1601393717532</created>
+    <task id="LOCAL-00019" summary="remove misleading JavaDoc">
+      <created>1601448226332</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1601393717532</updated>
+      <updated>1601448226332</updated>
     </task>
-    <task id="LOCAL-00020" summary="finished Players and work on Piece">
-      <created>1601480744573</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1601480744573</updated>
-    </task>
-    <task id="LOCAL-00021" summary="finish knight, work on Archer">
-      <created>1601570590968</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1601570590968</updated>
-    </task>
-    <task id="LOCAL-00022" summary="done">
-      <created>1601646694893</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1601646694893</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,84 +393,94 @@
     <MESSAGE value="fix failed tests" />
     <MESSAGE value="clarify updateScore" />
     <MESSAGE value="fix typo" />
-    <MESSAGE value="Work on ConsolePlayer" />
-    <MESSAGE value="finished Players and work on Piece" />
-    <MESSAGE value="finish knight, work on Archer" />
-    <MESSAGE value="done" />
-    <option name="LAST_COMMIT_MESSAGE" value="done" />
+    <MESSAGE value="remove misleading JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove misleading JavaDoc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="328" y="106" key="#Project_Structure" timestamp="1599619196773">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="328" y="106" key="#Project_Structure/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619196773" />
-    <state x="290" y="153" width="1020" height="637" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601645902512">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="464" y="125" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601474765285">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="290" y="153" width="1020" height="637" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1601645902512" />
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619684599" />
-    <state x="304" y="187" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600332917057" />
-    <state x="234" y="102" key="CommitChangelistDialog2" timestamp="1601027698586">
+    <state x="464" y="125" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601474765285" />
+    <state x="234" y="102" key="CommitChangelistDialog2" timestamp="1601448226156">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="234" y="102" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027698586" />
     <state x="251" y="93" key="CommitChangelistDialog2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622186181" />
     <state x="234" y="102" key="CommitChangelistDialog2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925282789" />
-    <state x="234" y="102" key="CommitChangelistDialog2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436370163" />
-    <state x="178" y="42" width="1280" height="720" key="DiffContextDialog" timestamp="1601570673680">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="234" y="102" key="CommitChangelistDialog2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601448226156" />
+    <state x="165" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1600435910952">
+      <screen x="43" y="0" width="1637" height="1050" />
     </state>
-    <state x="178" y="42" width="1280" height="720" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1601570673680" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state x="580" y="226" key="FileChooserDialogImpl" timestamp="1601373155749">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom" timestamp="1601479149988">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="580" y="226" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1601373155749" />
-    <state width="1557" height="212" key="GridCell.Tab.0.bottom" timestamp="1601725838681">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1557" height="212" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1601725838681" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
-    <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1557" height="212" key="GridCell.Tab.0.center" timestamp="1601725838680">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149988" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570048" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center" timestamp="1601479149986">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1557" height="212" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1601725838680" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
-    <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1557" height="212" key="GridCell.Tab.0.left" timestamp="1601725838680">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149986" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570046" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left" timestamp="1601479149985">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1557" height="212" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1601725838680" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
-    <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1557" height="212" key="GridCell.Tab.0.right" timestamp="1601725838681">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149985" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570045" />
+    <state width="1638" height="350" key="GridCell.Tab.0.right" timestamp="1601479149987">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1557" height="212" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1601725838681" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
-    <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
-    <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
+    <state width="1638" height="350" key="GridCell.Tab.0.right/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149987" />
+    <state width="1638" height="350" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570047" />
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom" timestamp="1601479149993">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149993" />
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570051" />
+    <state width="1638" height="350" key="GridCell.Tab.1.center" timestamp="1601479149991">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.center/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149991" />
+    <state width="1638" height="350" key="GridCell.Tab.1.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570050" />
+    <state width="1638" height="350" key="GridCell.Tab.1.left" timestamp="1601479149989">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.left/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149989" />
+    <state width="1638" height="350" key="GridCell.Tab.1.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570049" />
+    <state width="1638" height="350" key="GridCell.Tab.1.right" timestamp="1601479149992">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.right/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149992" />
+    <state width="1638" height="350" key="GridCell.Tab.1.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570051" />
+    <state x="316" y="106" key="SettingsEditor" timestamp="1601463514334">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="328" y="106" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601214074000" />
     <state x="328" y="106" key="SettingsEditor/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619404617" />
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
-    <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="419" y="217" key="Vcs.Push.Dialog.v2" timestamp="1601646708095">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="316" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601463514334" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1601448890897">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="419" y="217" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1601646708095" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601215906968" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
-    <state x="606" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601526550841">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601448890897" />
+    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601215899901">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="606" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1601526550841" />
+    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601215899901" />
     <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600148086022" />
     <state x="509" y="374" key="git4idea.ui.GitTagDialog" timestamp="1599619834414">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -473,12 +490,5 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="245" y="189" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1599978032620" />
-    <state x="56" y="199" key="run.anything.popup" timestamp="1601442490874">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="56" y="199" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1601442490874" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP_3021_PA1$GameTieBreakerTests.ic" NAME="GameTieBreakerTests Coverage Results" MODIFIED="1601645025347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
