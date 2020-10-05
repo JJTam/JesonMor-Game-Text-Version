@@ -44,7 +44,7 @@ public class JesonMor extends Game {
             this.currentPlayer = this.getPlayers()[numMoves % 2];  // current player
             Player lastPlayer = (numMoves % 2) == 0 ? this.getPlayers()[1] : this.getPlayers()[0];  // last player
             Move[] availMoves = this.getAvailableMoves(currentPlayer);
-            if (availMoves.length == 0 && numMoves != 0) {   // Tie Breaking Rule
+            if (availMoves.length == 0) {   // Tie Breaking Rule
                 winner = currentPlayer.getScore() <= lastPlayer.getScore() ? currentPlayer : lastPlayer;
                 System.out.println();
                 System.out.println("Congratulations! ");
